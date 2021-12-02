@@ -1,0 +1,21 @@
+name: 'Install Dockworker'
+description: 'Installs PHP, composer, and installs Dockworker from composer.json'
+runs:
+  using: "composite"
+  steps:
+    -
+      name: Install PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: 7.4
+        coverage: none
+        tools: composer:v2
+        extensions: curl,dom,gd,mbstring,posix,yaml,zip
+    -
+      name: Pull Required Docker Images
+      run: docker-compose pull --parallel --quiet
+      shell: bash
+    -
+      name: Install dockworker
+      run: composer install --prefer-dist --no-progress --no-suggest
+      shell: bash
