@@ -17,5 +17,5 @@ runs:
       shell: bash
     -
       name: Install dockworker
-      run: composer install --prefer-dist --no-progress --no-suggest
+      run: composer install --prefer-dist --no-progress --no-suggest --ignore-platform-reqs
       shell: bash
