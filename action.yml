@@ -7,7 +7,7 @@ runs:
       name: Install PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: 8.0
+        php-version: 8.1
         coverage: none
         tools: composer:v2
         extensions: curl,dom,gd,mbstring,posix,yaml,zip
