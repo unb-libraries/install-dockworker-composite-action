@@ -10,7 +10,7 @@ runs:
         php-version: 8.1
         coverage: none
         tools: composer:v2
-        extensions: curl,dom,gd,mbstring,posix,yaml,zip
+        extensions: curl,dom,gd,mbstring,posix,snmp,yaml,zip
     -
       name: Pull Required Docker Images
       run: docker-compose pull --parallel --quiet
