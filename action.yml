@@ -5,6 +5,10 @@ inputs:
     description: 'PHP version to install via shivammathur/setup-php. Defaults to 8.1 for backward compatibility.'
     required: false
     default: '8.1'
+  composer-version:
+    description: 'Composer tools version pin for shivammathur/setup-php. Defaults to 2.8.4 for backward compatibility.'
+    required: false
+    default: '2.8.4'
 runs:
   using: "composite"
   steps:
@@ -14,7 +18,7 @@ runs:
       with:
         php-version: ${{ inputs.php-version }}
         coverage: none
-        tools: composer:2.8.4
+        tools: composer:${{ inputs.composer-version }}
         extensions: curl,dom,gd,mbstring,posix,snmp,yaml,zip
     -
       name: Pull Required Docker Images
