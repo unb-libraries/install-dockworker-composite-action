@@ -1,5 +1,14 @@
 name: 'Install Dockworker'
 description: 'Installs PHP, composer, and installs Dockworker from composer.json'
+inputs:
+  php-version:
+    description: 'PHP version to install via shivammathur/setup-php. Defaults to 8.4.'
+    required: false
+    default: '8.4'
+  composer-version:
+    description: 'Composer tools version pin for shivammathur/setup-php. Defaults to 2.10.2.'
+    required: false
+    default: '2.10.2'
 runs:
   using: "composite"
   steps:
@@ -7,9 +16,9 @@ runs:
       name: Install PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: 8.3
+        php-version: ${{ inputs.php-version }}
         coverage: none
-        tools: composer:2.9.5
+        tools: composer:${{ inputs.composer-version }}
         extensions: curl,dom,gd,mbstring,posix,snmp,yaml,zip
     -
       name: Pull Required Docker Images
